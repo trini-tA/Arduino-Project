@@ -59,6 +59,37 @@ void loop() {
       btModule.println( "Receipt ok" );
       if( commande == "666" ){
         Serial.println( "get commande 666 OK");
+      } else if( commande == "0x01" ){
+        Serial.println("Go Go !");
+        
+        actionMoteur(1,1,100); 
+        //delay(2000); 
+        
+      } else if( commande == "0x11" ){  // Stop
+        
+        Serial.println("Stop Now !");
+        actionMoteur( 1, 0, 0 ); //arrêt moteur 1
+        actionMoteur( 2, 0, 0 ); //arrêt moteur 2
+  
+      } else if( commande == "0x10" ){  // Stop
+        
+        Serial.println("Go back !");
+
+        actionMoteur( 1, -1, 100 ); 
+  
+      } else if( commande == "0x1000" ){  // gauche
+        
+        Serial.println("Gauche !");
+
+        actionMoteur( 2, -1, 100 ); 
+        
+  
+      } else if( commande == "0x1001" ){  // droite
+        
+        Serial.println("Droite !");
+
+        actionMoteur( 2, 1, 100 ); 
+        
       }
 
     } else {
