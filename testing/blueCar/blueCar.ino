@@ -1,6 +1,6 @@
 /*
  * By Trinit@ 
- * Févier 2017
+ * Février 2017
  * 
  *  BlueCar -> Pilotage voiture télécommandée via bluetooth
  * 
@@ -53,17 +53,16 @@ void loop() {
     Serial.print( "--->>>>>> Command receipt : " );
     
     String commande = btModule.readStringUntil( "\r\n" ); 
+    Serial.print( commande );
 
-    if( commande.length() > 0 ){
-      Serial.println( commande );
-      btModule.println( "Receipt ok" );
-      if( commande == "666" ){
-        Serial.println( "get commande 666 OK");
-      } else if( commande == "0x01" ){
-        Serial.println("Go Go !");
+    if( commande.length() > 0){
+      // Serial.println( commande );
+      //btModule.println( "Receipt ok" );
+      
+      if( commande == "0x01" ){
         
+        Serial.println("Go Go !");
         actionMoteur(1,1,100); 
-        //delay(2000); 
         
       } else if( commande == "0x11" ){  // Stop
         
@@ -74,31 +73,30 @@ void loop() {
       } else if( commande == "0x10" ){  // Stop
         
         Serial.println("Go back !");
-
         actionMoteur( 1, -1, 100 ); 
   
       } else if( commande == "0x1000" ){  // gauche
         
         Serial.println("Gauche !");
-
         actionMoteur( 2, -1, 100 ); 
+        delay( 1000 );
+        actionMoteur ( 2, 0, 0 );
         
-  
       } else if( commande == "0x1001" ){  // droite
         
         Serial.println("Droite !");
-
         actionMoteur( 2, 1, 100 ); 
+        delay( 1000 );
+        actionMoteur ( 2, 0, 0 );
         
       }
 
     } else {
-      Serial.print( "Ko\n" );
+      
+      Serial.print( "Commande not exists !\n" );
+      
     }
-
   } 
-
-  
 }
 
 
@@ -134,7 +132,7 @@ void actionMoteur(int moteur,int sens,int pourcentage){
     pin2 = Pin2Moteur2;
     pinP = PinPMoteur2;
   }
-  //test sens du moteur 1,-1 (sens contrainre) ou tout autre valeur (stoppe le moteur)
+  //test sens du moteur 1,-1 (sens contraire) ou tout autre valeur (stoppe le moteur)
   if (sens==1){
     etat1=1;
     etat2=0;
@@ -151,16 +149,22 @@ void actionMoteur(int moteur,int sens,int pourcentage){
   analogWrite( pinP, puissance );
   digitalWrite( pin1, etat1 );
   digitalWrite( pin2, etat2 );
+
+  /*
   //affichage sur le moniteur série (facultatif)
   Serial.print("Moteur : " );
   Serial.print( moteur );
+  
   if (sens==-1 || sens==1){
     Serial.print(" sens : ");
     Serial.print(sens);
+  
   } else {
     Serial.print(" ! stop ! ");
+  
   }
+  
   Serial.print(" puissance : ");
-  Serial.println(pourcentage);
+  Serial.println(pourcentage);*/
 }
  
