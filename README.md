@@ -10,7 +10,7 @@ Commande un module HC-06 pour la réception d'ordre venant d'une app sous androi
 ### cmdMoteur :
 Commande de 2 moteurs via un L293
 ### blueCar :
-Programme de commande d'une voiture radiocommandé HS via bluetooth. 
+Programme de commande d'une voiture radiocommandée HS via bluetooth. 
 Voir le README dans le dossier blueCar.
 
 
