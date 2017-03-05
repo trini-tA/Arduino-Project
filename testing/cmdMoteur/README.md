@@ -6,4 +6,4 @@ L'application fonctionne très bien mais l'envoie des commandes n'est pas suffis
 Je prévois le développement d'une application Android très prochainement.
 
 Vidéo de démo :
-https://www.youtube.com/watch?v=b3jzZdA5jAU
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b3jzZdA5jAU" frameborder="0" allowfullscreen></iframe>
