@@ -5,5 +5,8 @@ J'utilise l'application Arduino bluetooth controller (https://play.google.com/st
 L'application fonctionne très bien mais l'envoie des commandes n'est pas suffisant pour bien diriger le véhicule.
 Je prévois le développement d'une application Android très prochainement.
 
-Vidéo de démo :
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b3jzZdA5jAU" frameborder="0" allowfullscreen></iframe>
+Démo avec vu sur l'application Android :
+[linkname](https://youtu.be/b3jzZdA5jAU)
+
+Démo :
+[linkname](https://youtu.be/4RoRip5uE1Q)
